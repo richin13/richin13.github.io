@@ -1,0 +1,261 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Here we come, guys */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 768px;
+
+    background: rgb(215, 215, 215);
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(244, 215, 26)), to(rgb(216, 189, 8)));
+    background: -webkit-radial-gradient(rgb(244, 215, 26), rgb(216, 189, 8));
+    background: -moz-radial-gradient(rgb(244, 215, 26), rgb(216, 189, 8));
+    background: -ms-radial-gradient(rgb(244, 215, 26), rgb(216, 189, 8));
+    background: -o-radial-gradient(rgb(244, 215, 26), rgb(216, 189, 8));
+    background: radial-gradient(rgb(244, 215, 26), rgb(216, 189, 8));
+
+}
+
+/* Fallback message */
+.fallback-message {
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #a52b32;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+/* Everything else */
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-size: 48px;
+    line-height: 1.5;
+
+    /*border: 3px solid black;*/
+}
+
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.3;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.impress-enabled .step.active {
+    opacity: 1
+}
+
+/* Formatting */
+.title {
+    font-family: 'Slabo 27px', sans-serif;
+    font-size: 1.5em;
+    display: block;
+}
+
+.subtitle {
+    font-family: 'Slabo 27px', sans-serif;
+    font-size: 1em;
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.i {
+    font-style: italic;
+}
+
+/* Sizes */
+.small {
+    font-size: .4em;
+}
+
+.medium {
+    font-size: .6em;
+}
+
+.big {
+    font-size: .9em;
+}
+
+.list {
+    list-style: disc;
+}
+
+.list > li {
+    margin-left: 2em;
+}
+
+.footnote {
+    font-size: .5em;
+    text-align: center;
+    width: 100%;
+}
+
+/* Presentation-specific stuff */
+.people {
+    color: #fff;
+    margin-top: 80px;
+}
+
+.people ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* ##### Intro ##### */
+#intro .scale {
+    position: fixed;
+    top: 30%;
+    height: auto;
+    width: auto;
+    max-height: 128px;
+    max-width: 128px;
+}
+
+/* Ribbon banner. sauce: https://css-tricks.com/snippets/css/ribbon/ */
+#intro .ribbon {
+    /*font-size: 16px !important;*/
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+    position: relative;
+    background: #343434;
+    color: #fff;
+    text-align: center;
+    padding: 1em 2em; /* Adjust to suit */
+    margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+#intro .ribbon:before, .ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #303030;
+    z-index: -1;
+}
+
+#intro .ribbon:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+#intro .ribbon:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+#intro .ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #252525 transparent transparent transparent;
+    bottom: -1em;
+}
+
+#intro .ribbon .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+#intro .ribbon .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
