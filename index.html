@@ -1,71 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>I am Ricardo</title>
+  <title>Ricardo Madriz</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
 
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@richin13cr"/>
-    <meta name="twitter:title" content="Richin13: My personal micro-website"/>
-    <meta name="twitter:description" content="A dead-simple website to tell a little bit more about me."/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@richin13cr"/>
+  <meta name="twitter:title" content="Ricardo Madriz: Jr. Full stack software developer"/>
+  <meta name="twitter:description" content="A dead-simple website to tell a little bit more about me."/>
 
-    <meta name="og:title" content="Richin13: My personal micro-website"/>
-    <meta name="og:type" content="website"/>
-    <meta name="og:image" content="https://richin13.github.io/assets/img/image.jpg"/>
-    <meta name="og:url" content="https://richin13.github.io"/>
+  <meta name="og:title" content="Ricardo Madriz: Jr. Full stack software developer"/>
+  <meta name="og:type" content="website"/>
+  <meta name="og:image" content="https://richin13.github.io/assets/img/profile.jpg"/>
+  <meta name="og:url" content="https://richin13.github.io"/>
 
-    <link rel="icon" href="assets/img/favicon.ico"/>
-    <link rel="stylesheet" href="assets/css/core.min.css">
-    <link rel="stylesheet" href="assets/css/main.css"/>
+  <link rel="icon" href="assets/img/favicon.ico"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+  <link rel="stylesheet" href="assets/css/main.css"/>
 </head>
 <body>
-<!-- Header -->
-<div class="header">
-    <div class="row sm">
-        <div class="col xs-12"> 
-            <h1>Richin13
-                <small>Enthusiast developer based in Cartago, Costa Rica
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 60 40">
-                        <path fill="#002B7F" d="M0 0h60v40H0V0z"/>
-                        <path fill="#FFF" d="M0 6.7h60v26.7H0V6.7z"/>
-                        <path fill="#CE1126" d="M0 13.3h60v13.3H0V13.3z"/>
-                    </svg>
-                </small>
-            </h1>
-        <hr/>
+<div class="main-container">
+  <header class="ui grid" id="header">
+    <div class="sixteen wide column" style="margin-bottom: -15px">
+      <div class="ui inverted social-networks menu">
+        <div class="right menu">
+          <a href="https://github.com/richin13" target="_blank" class="icon item"><i class="github icon"></i></a>
+          <a href="https://www.linkedin.com/in/ricardo-madriz-calder%C3%B3n-4b569a59/" target="_blank"
+             class="icon item"><i
+              class="linkedin icon"></i></a>
+          <a href="https://twitter.com/richin13cr" target="_blank" class="icon item"><i class="twitter icon"></i></a>
         </div>
+      </div>
     </div>
-</div>
-<!-- Content -->
-<div id="content">
-    <div class="row sm">
-        <div class="section col xs-12">
-            <h5>About me</h5>
-            <p class="content">
-           I am 22 years old developer and open source passionate. I taught myself to code at the age of 16 and have been in love with it since. Back in high school, I was learning HTML and CSS, but decided to go a step further to learn PHP by myself. In 2014, I started at Universidad de Costa Rica where I first began my higher educational experience and met very smart hard working people. My interests are <span class="tech">GNU/Linux, Python <span style="color:red">❤</span>, Back-end development, API development, Video Games and Machine Learning</span> 
-            </p>
-        </div>
-        <div class="section col xs-12">
-            <h5>About what I do</h5>
-            <p class="content">
-At the moment, I am a student at Universidad de Costa Rica. Throughout my enrolment in this institution, I have developed several applications as part of my professional career. Furthermore, I have used a wide range of technologies and awesome frameworks in order to achieve the best work possible at all times. I can proudly mention that amongst those frameworks and technologies are: <span class="tech">Python: Flask & Django, Java: Spring, PHP: Symfony, Javascript: jQuery, Backbone.<span> Finally, I also do a bit of front-end using <span class="tech">Semantic UI, Bootstrap, Font-Awesome, SweetAlert</span> and much more.
-            </p>
-        </div>
-        <div class="section col xs-12">
-            <h5>More to come</h5>
-            <p class="content">
-                ...
-            </p>
-        </div>
+    <div class="center aligned sixteen wide black column">
+      <div class="ui container heading">
+        <img class="ui centered tiny circular image" src="/assets/img/profile.jpg">
+        <h1 class="ui inverted header">
+          Ricardo Madriz
+          <span class="sub header">
+            Junior Full Stack Software Developer. Cartago, Costa Rica <i class="cr flag"></i>
+          </span>
+        </h1>
+      </div>
     </div>
-</div>
-<!-- Footer -->
-<div class="footer">
-    <div class="row sm">
-        <p class="content">Made with <a href="http://corecss.io/" title="Meet Core.css">core.css</a>, Vim, coffee and much &#60;3.
+  </header>
+  <section class="ui grid" id="content">
+    <div class="sixteen wide column">
+      <div class="ui container">
+        <h2 class="header">Myself</h2>
+        <div>
+          I am Jr. Full stack software developer that immediately felt in love with GNU/Linux and programming
+          <span id="how-many-years-ago"></span> years ago.
+          I taught myself to code at the age of 16 and have been in love with it since.
+          Back in high school, I was learning HTML and CSS, it was cool but I wanted more dynamism for my project,
+          that's when I first met a programming language: PHP.
+          Since I started studying at Universidad de Costa Rica, I have used an overwhelming number of technologies and
+          stacks, ones really awesome and others not so much. From the Assembly x86 to the most awesome and
+          syntactically-beautiful programming language: Python <span class="red">❤</span><br>
+          I also have a second big love: GNU/Linux and specifically Arch Linux operating system. I do maintain a couple
+          of
+          packages at <a href="https://aur.archlinux.org">AUR</a> just because I love Arch, open source and because it's
+          fun.
+        </div>
+        <h2 class="header">My experience</h2>
+        <div>
+          <p>
+            At the moment, I am fourth-year <i data-tooltip="It's actually called ''Business computing'' but I don't like
+          how that sounds!" data-inverted>Software Engineering</i> student at Universidad de Costa Rica.
+            Throughout these years, I have faced three major projects in which I have had important roles in planning,
+            analysis, design and construction stages of software development.
+          </p>
+
+          <ul class="list">
+            <li class="item"><strong>Aug. 2016 - Nov. 2016</strong> Parking administration system for <i>Organismo de
+              Investigación Judicial</i> for which I elicited requirements, and participated actively in the
+              construction
+              phase. This project was built with Visual Basic .NET and Bootstrap
+            </li>
+            <li class="item"><strong>Mar. 2017 - Jun. 2017</strong> Asset management system for <i>Universidad de Costa
+              Rica</i> at Paraíso's campus. For my role as a project coordinator I have actively participated in client
+              meetings but also in the analysis, design and construction stages of the application. I was built with
+              Ruby
+              on Rails and Bootstrap. Additionally, an extra module was built with Java for the Android platform.
+            </li>
+            <li class="item"><strong>Apr. 2017 - Present</strong> Billing system for <i>Asociación de Vecinos de Las
+              Vueltas
+              de Tucurrique en Pro de los recursos naturales</i>. This project is being built by myself as part of my <i
+                data-tooltip="Community work" data-inverted>TCU</i>. As part of my obligations and due to the current
+              state
+              of the software development process, I have attended meetings with the client, elicited requirements and
+              created
+              prototypes. The software is being built with Python using Django Web Framework and SemanticUI.
+            </li>
+          </ul>
+
+          <p>
+            Also, I have developed other solutions that involved several technologies such as Spring Framework, PHP, and
+            C++ for backend operations combined with ReactJS, BackboneJS and Handlebars for frontend development.
+            Even though those were not formal projects with all the stages of the SDLC, I learned a lot from those
+            experiences and that is mainly why I consider myself a Junior Full Stack Software Developer.
+          </p>
+
+          <p>
+            Some of those mini-projects are available online:
+            <a href="http://naive-fly.herokuapp.com/" title="Built with Python and SemanticUI">Naive fly</a> is a web
+            application that uses the Bayes theorem to classify students, professors and computer networks.
+            <a href="https://richin13.github.io/expert-tourist/" title="Built with Python and MongoDB">Expert
+              Tourist</a>
+            is a RESTful API that computes and recommends touristic routes based on user-defined preferences.
+            Those for whose it's live version is not available online, the source code will probably be in my Github.
+          </p>
+        </div>
+        <h2 class="header">My skills</h2>
+        <div>
+          <div class="ui blue progress" id="progress-english">
+            <div class="label">English proficiency</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-python">
+            <div class="label" data-tooltip="Including frameworks like Flask & Django" data-inverted>Python</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-git">
+            <div class="label">Git</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-java">
+            <div class="label">Java</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-javascript">
+            <div class="label" data-tooltip="Including framework like jQuery and ReactJS" data-inverted>Javascript</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-css">
+            <div class="label">Bootstrap, SemanticUI</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-databases">
+            <div class="label">PostgreSQL, MySQL, MSSQL, MongoDB</div>
+            <div class="bar"></div>
+          </div>
+          <div class="ui blue progress" id="progress-rails">
+            <div class="label">Ruby on Rails</div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+  <footer class="ui center aligned grid" id="footer">
+    <div class="sixteen wide black column">
+      Made with <a href="http://semantic-ui.com/" title="Meet SemanticUI">SemanticUI</a>, coffee and <span
+        class="red">❤</span>
+    </div>
+  </footer>
 </div>
-<script src="assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"
+        type="application/javascript"></script>
+<script type="application/javascript">
+  (function () {
+    function howManyYearsAgo() {
+      return new Date().getFullYear() - 2010;
+    }
+
+    document.getElementById('how-many-years-ago').innerHTML = howManyYearsAgo();
+  })();
+
+  (function () {
+    var skills = [
+      ["#progress-english", 85],
+      ["#progress-python", 85],
+      ["#progress-git", 85],
+      ["#progress-java", 80],
+      ["#progress-javascript", 75],
+      ["#progress-css", 70],
+      ["#progress-databases", 70],
+      ["#progress-rails", 65]
+    ];
+
+    skills.forEach(function (skill) {
+      $(skill[0]).progress({
+        percent: skill[1],
+        showActivity: false
+      });
+    });
+  })();
+</script>
 </body>
 </html>

@@ -1,68 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Noto+Serif');
-
-html {
-    font: 'Noto Serif', serif !important;
+a {
+    color: #0366D6;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-weight: bold; 
-    font-family: 'Fira Mono', monospace;
-    margin: 0.4em 0 0.4em 0;
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-
-
-h1 { font-size: 3rem; }
-h2 { font-size: 2.6rem; }
-h3 { font-size: 2.3rem; }
-h4 { font-size: 2rem; }
-h5 { font-size: 1.6rem; }
-h6 { font-size: 1.3rem; }
-
-h1 > small {
-    font-weight: normal;
-    font-size: 1rem;
-    display: block;
-    margin: 0.4em 0;
-    color: #3f3f3f;
+#header .social-networks {
+    border-radius: 0;
 }
 
-hr {
-    margin: 1em 0 1em 0;
+#header .heading {
+    padding: 2rem 0;
 }
 
-.header {
-    padding: 6rem 1.5rem 2.5rem 1.5rem;
+#content {
+    flex: 1;
+    margin: 2rem 0;
+    text-align: justify;
 }
 
-.section {
-    padding: 1.5rem;
-    margin: 0 0 3rem 0;
-}
-.content {
-    font-family: 'Noto Serif';
-    line-height: 1.5rem;
+.ui.progress .bar {
+    width: 85%;
 }
 
-.tech {
-    font-weight: bold;
-    font-style: italic;
-}
-
-.footer {
-    padding: 4rem 1.5rem 1rem 1.5rem;
-
-}
-
-/* Helper classes (yes, I might miss bootstrap) */
-.pull-left, .pull-right {
-    display: inline-block;
-}
-
-.pull-right {
-    float: right;
-}
-
-.pull-left {
-    float: left;
+/* Utils */
+.red {
+    color: #ec040c
 }
