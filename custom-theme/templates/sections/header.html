@@ -8,15 +8,15 @@
     <div class="w-full">
       <nav class="relative flex flex-wrap items-center justify-between bg-black rounded">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
+          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a href="/" class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Home</a>
           </div>
 
           <div class="flex lg:flex-grow items-center">
-            <ul class="flex flex-col lg:flex-row list-none ml-auto">
+            <ul class="flex flex-row list-none ml-auto">
               {% for pg in pages %}
               <li>
-                <a class="px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 {% if pg == page %}text-yellow-600{% else %}text-white{% endif %}" href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a>
+                <a class="lg:px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:text-yellow-600 {% if pg == page %}text-yellow-600{% else %}text-white{% endif %}" href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a>
               </li>
               {% endfor %}
               {% for name, link in SOCIAL %}
