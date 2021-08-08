@@ -5,7 +5,7 @@
 {% for article in articles_page.object_list %}
 {# First item #}
 {% if loop.first and not articles_page.has_previous() %}
-<aside class="bg-white w-auto mx-auto rounded p-5">
+<aside class="bg-white w-full mx-auto my-3 rounded p-5">
   <article>
     <h1 class="entry-title">
       <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
@@ -15,7 +15,7 @@
 </aside><!-- /#featured -->
 
 {% if loop.length > 1 %}
-<section id="content" class="body">
+<section class="bg-white w-full mx-auto rounded p-5">
   <h1>Older articles</h1>
   <hr />
   <ol id="posts-list" class="hfeed">
@@ -25,7 +25,7 @@
 {% else %}<!-- first and not prevs -->
 
 {% if loop.first %}
-<section id="content" class="body">
+<section class="bg-white w-full mx-auto rounded p-5">
   <ol id="posts-list" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
 {% endif %}<!-- first -->
     <li>

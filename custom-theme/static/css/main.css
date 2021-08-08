@@ -224,25 +224,6 @@ figure p.caption {
   margin-bottom: 0;
 }
 
-/*
-	Header
-*****************/
-#banner {
-  margin: 0 auto;
-  padding: 2.5em 0 0 0;
-}
-
-/* Banner */
-#banner h1 {
-  font-size: 3.571em;
-  line-height: 0;
-}
-
-#banner h1 strong {
-  font-size: 0.36em;
-  font-weight: normal;
-}
-
 
 /*
 	Featured

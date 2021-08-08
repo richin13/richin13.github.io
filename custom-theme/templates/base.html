@@ -4,6 +4,8 @@
     {% block head %}
     <meta charset="utf-8" />
     <meta name="generator" content="Pelican" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/tailwind.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
@@ -18,56 +20,17 @@
     {% endblock head %}
   </head>
 
-  <body id="index" class="home container mx-auto bg-gray-700">
-    <header id="banner" class="body">
-      <h1><a class="text-white hover:text-yellow-600" href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+  <body class="home container mx-auto bg-gray-700">
+    <div class="w-full md:w-7/12 mx-auto">
+    {%include 'sections/header.html' %}
 
-      <div class="flex flex-wrap py-2">
-        <div class="w-full px-4">
-          <nav class="relative flex flex-wrap items-center justify-between bg-black rounded">
-            <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-              <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-                <a href="/" class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Home</a>
-              </div>
-
-              <div class="flex lg:flex-grow items-center">
-                <ul class="flex flex-col lg:flex-row list-none ml-auto">
-                  {% for pg in pages %}
-                  <li>
-                    <a class="px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 {% if pg == page %}text-yellow-600{% else %}text-white{% endif %}" href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a>
-                  </li>
-                  {% endfor %}
-                  {% for name, link in SOCIAL %}
-                  <li><a class="px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 text-white" href="{{ link }}"><i class="fa fa-{{name}}"></i></a></li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
-            </nav>
-        </div>
-      </div>
-    </header><!-- /#banner -->
     {% block content %}
     {% endblock %}
 
-    <section id="extras" class="body">
-      {% if FEED_ALL_ATOM or FEED_ALL_RSS %}
-      <div class="social">
-        <h2>{{ SOCIAL_WIDGET_NAME | default('social') }}</h2>
-        <ul>
-          {% if FEED_ALL_ATOM %}
-          <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate">atom feed</a></li>
-          {% endif %}
-          {% if FEED_ALL_RSS %}
-          <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate">rss feed</a></li>
-          {% endif %}
-        </ul>
-      </div><!-- /.social -->
-      {% endif %}
-    </section><!-- /#extras -->
+    {% include 'sections/extras.html' %}
 
     <footer class="relative pt-8 pb-6">
-      <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+      <div class="w-full md:w-6/12 px-4 mx-auto text-center">
         <div class="text-xs text-white py-1">
           Copyleft <span class="copyleft">&copy;</span> 2021 Ricardo Madriz. Made with
           <a href="https://getpelican.com"
@@ -79,7 +42,7 @@
         </div>
       </div>
     </footer>
-
+    </div>
     {% include 'analytics.html' %}
     {% include 'disqus_script.html' %}
   </body>
