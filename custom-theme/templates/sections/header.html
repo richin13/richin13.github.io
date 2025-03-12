@@ -8,17 +8,17 @@
         {% endif %}
       </a>
     </div>
-    
+
     <nav class="flex items-center space-x-6">
       <a href="{{ SITEURL }}/" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-      
+
       {% for pg in pages %}
-        <a href="{{ SITEURL }}/{{ pg.url }}" 
+        <a href="{{ SITEURL }}/{{ pg.url }}"
            class="text-gray-700 hover:text-blue-600 font-medium transition-colors {% if pg == page %}text-blue-600 font-semibold{% endif %}">
           {{ pg.title }}
         </a>
       {% endfor %}
-      
+
       <div class="flex items-center space-x-3">
         {% if SOCIAL %}
           {% for name, link in SOCIAL %}
