@@ -29,7 +29,7 @@ LINKS = (
 SOCIAL = (
     ("github", "https://github.com/richin13"),
     ("twitter", "https://twitter.com/richin13"),
-    ("linkedin", "https://linkedin.com/in/ricardomadriz"),
+    ("linkedin", "https://linkedin.com/in/ricardo-madriz"),
 )
 
 DEFAULT_PAGINATION = 10
