@@ -5,8 +5,8 @@ Author: Ricardo Madriz
 # About Me
 
 I design software, I write code.
+
 I like writing code.
-Even when I'm asleep.
 
 ## Professional Background
 
