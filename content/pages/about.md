@@ -1,18 +1,37 @@
-Title: About me
-Slug: about-me
+Title: About Me
+Slug: about
+Author: Ricardo Madriz
 
-_English_
+# About Me
 
-Generic content placeholder lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet nisl. Pulvinar etiam non quam lacus suspendisse faucibus interdum. Quam pellentesque nec nam aliquam sem et tortor consequat.
+I design software, I write code.
+I like writing code.
+Even when I'm asleep.
 
-Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Egestas purus viverra accumsan in nisl. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Vel facilisis volutpat est velit. Nulla at volutpat diam ut venenatis tellus in metus. Sagittis id consectetur purus ut faucibus. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim. Sagittis orci a scelerisque purus semper. Consectetur adipiscing elit duis tristique sollicitudin nibh sit.
+## Professional Background
 
-Odio ut enim blandit volutpat maecenas. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Purus ut faucibus pulvinar elementum integer enim neque. Iaculis nunc sed augue lacus viverra vitae. Ut enim blandit volutpat maecenas.
+Working on digital marketing. Mostly with the stack:
 
-_Español_
+- Python (FastAPI, Flask & Django)
+- JavaScript/TypeScript (React, Next.js)
+- Cloud infrastructure (AWS, GCP)
 
-Contenido genérico lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet nisl. Pulvinar etiam non quam lacus suspendisse faucibus interdum. Quam pellentesque nec nam aliquam sem et tortor consequat.
+On my free time I've also worked with:
 
-Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Egestas purus viverra accumsan in nisl. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Vel facilisis volutpat est velit. Nulla at volutpat diam ut venenatis tellus in metus. Sagittis id consectetur purus ut faucibus. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim. Sagittis orci a scelerisque purus semper. Consectetur adipiscing elit duis tristique sollicitudin nibh sit.
+- React Native (Expo)
+- Rust
+- Generative AI
 
-Odio ut enim blandit volutpat maecenas. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Purus ut faucibus pulvinar elementum integer enim neque. Iaculis nunc sed augue lacus viverra vitae. Ut enim blandit volutpat maecenas.
+## Personal Interests
+
+When I'm not coding, you might find me:
+
+- Riding my dirt bike
+- Reading about new technologies and software architecture
+- Contributing to open-source projects
+
+## Get in Touch
+
+Feel free to reach out to me through any of the social media links in this site.
+
+I'm always open to interesting conversations, collaboration opportunities, or just connecting with like-minded individuals.
