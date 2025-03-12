@@ -43,3 +43,6 @@ THEME = "./custom-theme"
 # Additional settings
 SITESUBTITLE = "Software Engineer"
 CURRENTYEAR = datetime.datetime.now().year
+
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
