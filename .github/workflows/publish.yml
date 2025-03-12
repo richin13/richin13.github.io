@@ -28,7 +28,7 @@ jobs:
         uv sync --frozen
 
     - name: Build Pelican site
-      run: pelican
+      run: uv run pelican
 
     - name: Deploy to GitHub Pages
       run: |
