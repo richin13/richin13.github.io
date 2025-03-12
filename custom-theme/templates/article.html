@@ -17,37 +17,100 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-           title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-      {% include 'twitter.html' %}
+<article class="bg-white rounded-lg shadow-sm overflow-hidden">
+  <div class="p-6 md:p-8">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">
+        {{ article.title }}
+      </h1>
+      
+      <div class="flex flex-wrap items-center text-sm text-gray-500">
+        <time datetime="{{ article.date.isoformat() }}">
+          <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
+        </time>
+        
+        {% if article.author %}
+          <span class="mx-2">•</span>
+          <span><i class="far fa-user mr-1"></i> {{ article.author }}</span>
+        {% endif %}
+        
+        {% if article.category %}
+          <span class="mx-2">•</span>
+          <span>
+            <i class="far fa-folder mr-1"></i>
+            <a href="{{ SITEURL }}/{{ article.category.url }}" class="hover:text-blue-600 transition-colors">{{ article.category }}</a>
+          </span>
+        {% endif %}
+        
+        {% if article.tags %}
+          <span class="mx-2">•</span>
+          <span class="flex items-center">
+            <i class="fas fa-tags mr-1"></i>
+            {% for tag in article.tags %}
+              <a href="{{ SITEURL }}/{{ tag.url }}" class="hover:text-blue-600 transition-colors">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
     </header>
 
-    <div class="entry-content">
-      {% include 'article_infos.html' %}
+    <div class="prose prose-lg max-w-none">
       {{ article.content }}
-    </div><!-- /.entry-content -->
+    </div>
+    
+    {% if article.related_posts %}
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        {% for related_post in article.related_posts %}
+        <a href="{{ SITEURL }}/{{ related_post.url }}" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ related_post.title }}</h3>
+          <div class="text-sm text-gray-500">
+            <i class="far fa-calendar-alt mr-1"></i> {{ related_post.locale_date }}
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
-    <div class="comments">
-      <h2>Comments !</h2>
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Comments</h2>
       <div id="disqus_thread"></div>
-      <script type="text/javascript">
+      <script>
         var disqus_shortname = '{{ DISQUS_SITENAME }}';
         var disqus_identifier = '{{ article.url }}';
         var disqus_url = '{{ SITEURL }}/{{ article.url }}';
         (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the comments.</noscript>
+      <noscript>
+        <p class="text-center text-gray-500 my-4">Please enable JavaScript to view the comments.</p>
+      </noscript>
     </div>
     {% endif %}
+  </div>
+</article>
 
-  </article>
-</section>
+<div class="mt-8 flex justify-between">
+  {% if article.prev_article %}
+  <a href="{{ SITEURL }}/{{ article.prev_article.url }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+    <i class="fas fa-arrow-left mr-2"></i> Previous: {{ article.prev_article.title|truncate(30) }}
+  </a>
+  {% else %}
+  <div></div>
+  {% endif %}
+  
+  {% if article.next_article %}
+  <a href="{{ SITEURL }}/{{ article.next_article.url }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+    Next: {{ article.next_article.title|truncate(30) }} <i class="fas fa-arrow-right ml-2"></i>
+  </a>
+  {% else %}
+  <div></div>
+  {% endif %}
+</div>
 {% endblock %}

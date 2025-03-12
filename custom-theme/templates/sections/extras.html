@@ -1,19 +1,28 @@
-<section id="extras" class="body">
-  {% if FEED_ALL_ATOM or FEED_ALL_RSS %}
-  <div class="social">
-    <h2>{{ SOCIAL_WIDGET_NAME | default('social') }}</h2>
-    <ul>
+{% if FEED_ALL_ATOM or FEED_ALL_RSS %}
+<section class="mt-16 border-t border-gray-200 pt-8">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="mb-4 md:mb-0">
+      <h2 class="text-xl font-semibold text-gray-900">Subscribe</h2>
+      <p class="text-gray-600 mt-1">Stay updated with the latest content</p>
+    </div>
+    
+    <div class="flex space-x-4">
       {% if FEED_ALL_ATOM %}
-      <li>
-        <a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate">atom feed</a>
-      </li>
+      <a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" 
+         class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+         type="application/atom+xml" rel="alternate">
+        <i class="fas fa-rss mr-2"></i> Atom Feed
+      </a>
       {% endif %}
+      
       {% if FEED_ALL_RSS %}
-      <li>
-        <a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate">rss feed</a>
-      </li>
+      <a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" 
+         class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+         type="application/rss+xml" rel="alternate">
+        <i class="fas fa-rss mr-2"></i> RSS Feed
+      </a>
       {% endif %}
-    </ul>
-  </div><!-- /.social -->
-  {% endif %}
-</section><!-- /#extras -->
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -2,70 +2,111 @@
 {% block content %}
 {% if articles %}
 
-{% for article in articles_page.object_list %}
-{# First item #}
-{% if loop.first and not articles_page.has_previous() %}
-<aside class="bg-white w-full mx-auto my-3 rounded p-5">
-  <article>
-    <h1 class="entry-title">
-      <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-    </h1>
-    {% include 'article_infos.html' %}{{ article.content }}{% include 'comments.html' %}
-  </article>
-</aside><!-- /#featured -->
-
-{% if loop.length > 1 %}
-<section class="bg-white w-full mx-auto rounded p-5">
-  <h1>Older articles</h1>
-  <hr />
-  <ol id="posts-list" class="hfeed">
-{% endif %}
-
-{# other items #}
-{% else %}<!-- first and not prevs -->
-
-{% if loop.first %}
-<section class="bg-white w-full mx-auto rounded p-5">
-  <ol id="posts-list" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
-{% endif %}<!-- first -->
-    <li>
-      <article class="hentry">
-        <header>
-          <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-        </header>
-
-        <div class="entry-content">
-          {% include 'article_infos.html' %}
-          {{ article.summary }}
-          <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">read more</a>
-          {% include 'comments.html' %}
-        </div><!-- /.entry-content -->
+  {% for article in articles_page.object_list %}
+    {# First item #}
+    {% if loop.first and not articles_page.has_previous() %}
+      <article class="bg-white rounded-lg shadow-sm overflow-hidden mb-12">
+        <div class="p-6 md:p-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-blue-600 transition-colors">{{ article.title }}</a>
+          </h1>
+          
+          <div class="flex items-center text-sm text-gray-500 mb-6">
+            <time datetime="{{ article.date.isoformat() }}">
+              <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
+            </time>
+            {% if article.author %}
+              <span class="mx-2">•</span>
+              <span><i class="far fa-user mr-1"></i> {{ article.author }}</span>
+            {% endif %}
+            {% if article.category %}
+              <span class="mx-2">•</span>
+              <span>
+                <i class="far fa-folder mr-1"></i>
+                <a href="{{ SITEURL }}/{{ article.category.url }}" class="hover:text-blue-600 transition-colors">{{ article.category }}</a>
+              </span>
+            {% endif %}
+          </div>
+          
+          <div class="prose max-w-none">
+            {{ article.content }}
+          </div>
+          
+          {% if article.tags %}
+            <div class="mt-6 flex flex-wrap gap-2">
+              {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors">
+                  <i class="fas fa-tag mr-1"></i> {{ tag }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       </article>
-    </li>
-{% endif %}<!-- first and not prevs -->
 
-{% if loop.last %}
-  {% if loop.length > 1 or articles_page.has_other_pages() %}
-  </ol><!-- /#posts-list -->
-    {% if articles_page.has_other_pages() %}
-      {% include 'pagination.html' %}
+      {% if loop.length > 1 %}
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 mt-12">Recent Articles</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {% endif %}
+
+    {# other items #}
+    {% else %}
+      {% if loop.first %}
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Articles</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {% endif %}
+      
+      <article class="bg-white rounded-lg shadow-sm overflow-hidden h-full flex flex-col">
+        <div class="p-6 flex-grow">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-blue-600 transition-colors">{{ article.title }}</a>
+          </h3>
+          
+          <div class="flex items-center text-sm text-gray-500 mb-4">
+            <time datetime="{{ article.date.isoformat() }}">
+              <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
+            </time>
+          </div>
+          
+          <div class="prose prose-sm max-w-none mb-4">
+            {{ article.summary }}
+          </div>
+          
+          <a href="{{ SITEURL }}/{{ article.url }}" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center mt-auto">
+            Read more <i class="fas fa-arrow-right ml-1 text-xs"></i>
+          </a>
+        </div>
+      </article>
     {% endif %}
-</section><!-- /#content -->
-  {% endif %}
-{% endif %}
-{% endfor %}
+
+    {% if loop.last %}
+      {% if loop.length > 1 or articles_page.has_other_pages() %}
+        </div>
+        
+        {% if articles_page.has_other_pages() %}
+          <div class="mt-12">
+            {% include 'pagination.html' %}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
 {% else %}
-<section id="content" class="body">
-  {% if pages %}
-  <h2>Pages</h2>
-  <ul>
-    {% for page in pages %}
-    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>This site currently has no content.</p>
-  {% endif %}
-</section>
-{% endif %}<!-- /#if articles -->
+  <div class="bg-white rounded-lg shadow-sm p-8 text-center">
+    {% if pages %}
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Pages</h2>
+      <ul class="space-y-2">
+        {% for page in pages %}
+          <li>
+            <a href="{{ SITEURL }}/{{ page.url }}" class="text-blue-600 hover:text-blue-800 transition-colors">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-gray-600">This site currently has no content.</p>
+      <p class="mt-4 text-sm text-gray-500">Check back soon for updates!</p>
+    {% endif %}
+  </div>
+{% endif %}
 {% endblock content %}

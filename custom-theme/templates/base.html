@@ -9,40 +9,69 @@
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/tailwind.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
-    <script src="https://use.fontawesome.com/5fe61c8523.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
     {% if FEED_ALL_RSS %}
     <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
     {% endif %}
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+      }
+      .prose {
+        max-width: 65ch;
+      }
+    </style>
     {% block extra_head %}{% endblock extra_head %}
     {% endblock head %}
   </head>
 
-  <body class="home container mx-auto bg-gray-700">
-    <div class="w-full md:w-7/12 mx-auto">
-    {%include 'sections/header.html' %}
+  <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <div class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {%include 'sections/header.html' %}
 
-    {% block content %}
-    {% endblock %}
+      <main class="mt-8">
+        {% block content %}
+        {% endblock %}
+      </main>
 
-    {% include 'sections/extras.html' %}
+      {% include 'sections/extras.html' %}
+    </div>
 
-    <footer class="relative pt-8 pb-6">
-      <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-        <div class="text-xs text-white py-1">
-          Copyleft <span class="copyleft">&copy;</span> 2021 Ricardo Madriz. Made with
-          <a href="https://getpelican.com"
-             class="text-white hover:text-yellow-600"
-           >Pelican</a>, hosted by
-          <a href="https://github.com"
-             class="text-white hover:text-yellow-600"
-           >Github</a>.
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-sm">© {{ CURRENTYEAR }} Ricardo Madriz</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="https://github.com/richin13" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://twitter.com/richin13" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="https://linkedin.com/in/ricardomadriz" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-400 text-xs">
+          Made with <a href="https://getpelican.com" class="hover:text-white underline">Pelican</a>, 
+          hosted on <a href="https://github.com" class="hover:text-white underline">GitHub Pages</a>
         </div>
       </div>
     </footer>
-    </div>
+    
     {% include 'analytics.html' %}
     {% include 'disqus_script.html' %}
   </body>

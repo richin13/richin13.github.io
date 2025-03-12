@@ -1,33 +1,47 @@
-<header class="w-full pt-5">
-  <h1>
-    <a class="text-white hover:text-yellow-600" href="{{ SITEURL }}/">
-      {{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}
-    </a>
-  </h1>
-  <div class="flex flex-wrap py-2">
-    <div class="w-full">
-      <nav class="relative flex flex-wrap items-center justify-between bg-black rounded">
-        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a href="/" class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Home</a>
-          </div>
-
-          <div class="flex lg:flex-grow items-center">
-            <ul class="flex flex-row list-none ml-auto">
-              {% for pg in pages %}
-              <li>
-                <a class="lg:px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:text-yellow-600 {% if pg == page %}text-yellow-600{% else %}text-white{% endif %}" href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a>
-              </li>
-              {% endfor %}
-              {% for name, link in SOCIAL %}
-              <li>
-                <a class="px-2 pt-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 text-white" href="{{ link }}"><i class="fa fa-{{name}}"></i></a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </nav>
+<header class="border-b border-gray-200 pb-6">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="mb-4 md:mb-0">
+      <a href="{{ SITEURL }}/" class="text-3xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+        {{ SITENAME }}
+        {% if SITESUBTITLE %}
+          <span class="block text-lg font-normal text-gray-600 mt-1">{{ SITESUBTITLE }}</span>
+        {% endif %}
+      </a>
     </div>
+    
+    <nav class="flex items-center space-x-6">
+      <a href="{{ SITEURL }}/" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+      
+      {% for pg in pages %}
+        <a href="{{ SITEURL }}/{{ pg.url }}" 
+           class="text-gray-700 hover:text-blue-600 font-medium transition-colors {% if pg == page %}text-blue-600 font-semibold{% endif %}">
+          {{ pg.title }}
+        </a>
+      {% endfor %}
+      
+      <div class="flex items-center space-x-3">
+        {% if SOCIAL %}
+          {% for name, link in SOCIAL %}
+            {% if name.lower() == 'github' %}
+              <a href="{{ link }}" class="text-gray-700 hover:text-gray-900" title="GitHub" target="_blank" rel="noopener">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            {% elif name.lower() == 'twitter' %}
+              <a href="{{ link }}" class="text-gray-700 hover:text-blue-400" title="Twitter" target="_blank" rel="noopener">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+            {% elif name.lower() == 'linkedin' %}
+              <a href="{{ link }}" class="text-gray-700 hover:text-blue-700" title="LinkedIn" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+            {% else %}
+              <a href="{{ link }}" class="text-gray-700 hover:text-blue-600" title="{{ name }}" target="_blank" rel="noopener">
+                <i class="fa fa-{{ name.lower() }} text-xl"></i>
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </nav>
   </div>
-</header><!-- /#banner -->
+</header>
