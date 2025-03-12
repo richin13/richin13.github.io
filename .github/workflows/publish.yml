@@ -32,7 +32,7 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: |
-        ghp-import output
+        uv run ghp-import output
         git push -f https://github.com/${{ github.repository }} gh-pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
