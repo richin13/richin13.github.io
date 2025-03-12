@@ -1,8 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*- #
+import datetime
+
 
 AUTHOR = "Ricardo Madriz"
-SITENAME = "Ricardo"
+SITENAME = "Ricardo's blog"
 SITEURL = ""
 
 PATH = "content"
@@ -18,21 +18,28 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+# Blogroll
+LINKS = (
+    ("Pelican", "https://getpelican.com/"),
+    ("Python.org", "https://www.python.org/"),
+    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
+)
+
 # Social widget
 SOCIAL = (
     ("github", "https://github.com/richin13"),
-    ("twitter", "https://twitter.com/richin13cr"),
+    ("twitter", "https://twitter.com/richin13"),
+    ("linkedin", "https://linkedin.com/in/ricardomadriz"),
 )
 
-# Navbar menu items
-MENUITEMS = (
-    ("Home", "/"),
-)
-
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
 OUTPUT_PATH = "."
 THEME = "./custom-theme"
+
+# Additional settings
+SITESUBTITLE = "Software Engineer"
+CURRENTYEAR = datetime.datetime.now().year
