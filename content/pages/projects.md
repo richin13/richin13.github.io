@@ -2,8 +2,6 @@ Title: Projects
 Slug: projects
 Author: Ricardo Madriz
 
-# My Projects
-
 Here are some of the projects I've worked on. You can find more on my [GitHub profile](https://github.com/richin13).
 
 ## Open Source Projects

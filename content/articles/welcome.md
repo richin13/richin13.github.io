@@ -6,8 +6,6 @@ Slug: welcome-to-my-redesigned-website
 Author: Ricardo Madriz
 Summary: Welcome to my newly redesigned personal website and blog built with Pelican and Tailwind CSS.
 
-# Welcome to My Redesigned Website
-
 I'm excited to share my newly redesigned personal website and blog. This site is built with [Pelican](https://getpelican.com/), a static site generator written in Python, and styled with [Tailwind CSS](https://tailwindcss.com/).
 
 ## Why Pelican?

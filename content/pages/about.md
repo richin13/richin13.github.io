@@ -2,8 +2,6 @@ Title: About Me
 Slug: about
 Author: Ricardo Madriz
 
-# About Me
-
 I design software, I write code.
 
 I like writing code.

@@ -9,28 +9,17 @@
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/tailwind.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code-blocks.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
     {% if FEED_ALL_RSS %}
     <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
     {% endif %}
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f8f9fa;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Playfair Display', serif;
-      }
-      .prose {
-        max-width: 65ch;
-      }
-    </style>
     {% block extra_head %}{% endblock extra_head %}
     {% endblock head %}
   </head>
@@ -47,32 +36,49 @@
       {% include 'sections/extras.html' %}
     </div>
 
-    <footer class="bg-gray-900 text-white py-12 mt-16">
+    <footer class="bg-gray-900 text-white py-8 mt-12">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <p class="text-sm">© {{ CURRENTYEAR }} Ricardo Madriz</p>
+          <div class="text-center md:text-left">
+            <div class="text-gray-400 text-sm">
+              Made with <a href="https://getpelican.com" class="hover:text-white underline">Pelican</a>,
+              hosted on <a href="https://github.com" class="hover:text-white underline">GitHub Pages</a>
+            </div>
+            <div class="mt-2">
+              <p xmlns:cc="http://creativecommons.org/ns#" class="text-gray-400 text-xs flex items-center">
+                This work is licensed under
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" class="inline-flex items-center ml-1">
+                  CC BY-SA 4.0
+                  <img class="h-3 ml-1" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                  <img class="h-3 ml-1" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                  <img class="h-3 ml-1" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </a>
+              </p>
+            </div>
           </div>
-          <div class="flex space-x-4">
-            <a href="https://github.com/richin13" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-github text-xl"></i>
-            </a>
-            <a href="https://twitter.com/richin13" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-twitter text-xl"></i>
-            </a>
-            <a href="https://linkedin.com/in/ricardomadriz" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-linkedin text-xl"></i>
-            </a>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            {% for name, link in SOCIAL %}
+              {% if name.lower() == 'github' %}
+                <a href="{{ link }}" class="text-gray-400 hover:text-white transition-colors">
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+              {% elif name.lower() == 'twitter' %}
+                <a href="{{ link }}" class="text-gray-400 hover:text-white transition-colors">
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+              {% elif name.lower() == 'linkedin' %}
+                <a href="{{ link }}" class="text-gray-400 hover:text-white transition-colors">
+                  <i class="fab fa-linkedin text-xl"></i>
+                </a>
+              {% endif %}
+            {% endfor %}
           </div>
-        </div>
-        <div class="mt-8 text-center text-gray-400 text-xs">
-          Made with <a href="https://getpelican.com" class="hover:text-white underline">Pelican</a>, 
-          hosted on <a href="https://github.com" class="hover:text-white underline">GitHub Pages</a>
         </div>
       </div>
     </footer>
-    
+
     {% include 'analytics.html' %}
     {% include 'disqus_script.html' %}
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/copy-code.js"></script>
   </body>
 </html>

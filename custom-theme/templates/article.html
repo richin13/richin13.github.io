@@ -23,17 +23,17 @@
       <h1 class="text-3xl font-bold text-gray-900 mb-4">
         {{ article.title }}
       </h1>
-      
+
       <div class="flex flex-wrap items-center text-sm text-gray-500">
         <time datetime="{{ article.date.isoformat() }}">
           <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
         </time>
-        
+
         {% if article.author %}
           <span class="mx-2">•</span>
           <span><i class="far fa-user mr-1"></i> {{ article.author }}</span>
         {% endif %}
-        
+
         {% if article.category %}
           <span class="mx-2">•</span>
           <span>
@@ -41,7 +41,7 @@
             <a href="{{ SITEURL }}/{{ article.category.url }}" class="hover:text-blue-600 transition-colors">{{ article.category }}</a>
           </span>
         {% endif %}
-        
+
         {% if article.tags %}
           <span class="mx-2">•</span>
           <span class="flex items-center">
@@ -57,7 +57,7 @@
     <div class="prose prose-lg max-w-none">
       {{ article.content }}
     </div>
-    
+
     {% if article.related_posts %}
     <div class="mt-12 pt-8 border-t border-gray-200">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h2>
@@ -73,7 +73,7 @@
       </div>
     </div>
     {% endif %}
-    
+
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
     <div class="mt-12 pt-8 border-t border-gray-200">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">Comments</h2>
@@ -104,7 +104,7 @@
   {% else %}
   <div></div>
   {% endif %}
-  
+
   {% if article.next_article %}
   <a href="{{ SITEURL }}/{{ article.next_article.url }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
     Next: {{ article.next_article.title|truncate(30) }} <i class="fas fa-arrow-right ml-2"></i>

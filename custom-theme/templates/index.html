@@ -10,7 +10,7 @@
           <h1 class="text-3xl font-bold text-gray-900 mb-4">
             <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-blue-600 transition-colors">{{ article.title }}</a>
           </h1>
-          
+
           <div class="flex items-center text-sm text-gray-500 mb-6">
             <time datetime="{{ article.date.isoformat() }}">
               <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
@@ -27,11 +27,11 @@
               </span>
             {% endif %}
           </div>
-          
+
           <div class="prose max-w-none">
             {{ article.content }}
           </div>
-          
+
           {% if article.tags %}
             <div class="mt-6 flex flex-wrap gap-2">
               {% for tag in article.tags %}
@@ -55,23 +55,23 @@
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Articles</h2>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {% endif %}
-      
+
       <article class="bg-white rounded-lg shadow-sm overflow-hidden h-full flex flex-col">
         <div class="p-6 flex-grow">
           <h3 class="text-xl font-bold text-gray-900 mb-3">
             <a href="{{ SITEURL }}/{{ article.url }}" class="hover:text-blue-600 transition-colors">{{ article.title }}</a>
           </h3>
-          
+
           <div class="flex items-center text-sm text-gray-500 mb-4">
             <time datetime="{{ article.date.isoformat() }}">
               <i class="far fa-calendar-alt mr-1"></i> {{ article.locale_date }}
             </time>
           </div>
-          
+
           <div class="prose prose-sm max-w-none mb-4">
             {{ article.summary }}
           </div>
-          
+
           <a href="{{ SITEURL }}/{{ article.url }}" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center mt-auto">
             Read more <i class="fas fa-arrow-right ml-1 text-xs"></i>
           </a>
@@ -82,7 +82,7 @@
     {% if loop.last %}
       {% if loop.length > 1 or articles_page.has_other_pages() %}
         </div>
-        
+
         {% if articles_page.has_other_pages() %}
           <div class="mt-12">
             {% include 'pagination.html' %}
